@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Config>
+    <BensonPHP>
+        <!-- Path from root / -->
+        <ModelsFilepath>/src/Models</ModelsFilepath>
+        <!-- Path from root / -->
+        <ViewsFilepath>/src/Views</ViewsFilepath>
+        <!-- Path from root / -->
+        <ControllersFilepath>/src/Controllers</ControllersFilepath>
+        <!-- Path from root / -->
+        <LayoutsFilepath>/src/Layouts</LayoutsFilepath>
+        <Extension>.php</Extension>
+    </BensonPHP>
+    
+    <Connections>
+        <Database env="development" name="default" type="mysql">
+            <Host>localhost</Host>
+            <Name>name</Name>
+            <User>root</User>
+            <Password></Password>
+        </Database>
+        <Database env="production" name="default" type="mysql">
+            <Host>name</Host>
+            <Name></Name>
+            <User></User>
+            <Password></Password>
+        </Database>
+    </Connections>
+    
+    <Site>
+        <Domain env="production">http://localhost</Domain>
+        <ShowExceptions env="production">false</ShowExceptions>
+        
+        <Domain env="development">http://localhost</Domain>
+        <ShowExceptions env="development">true</ShowExceptions>
+        
+        <Prefixes>
+            <!-- Example: <Prefix>admin</Prefix> -->
+            <!-- Example: <Prefix>admin/manage</Prefix> -->
+            <!-- No slashes at beginning or end such as <Prefix>/admin/</Prefix> -->
+            <!--<Prefix>admin</Prefix>-->
+        </Prefixes>
+        
+        <Routes>
+            <!--<Route pattern="/uri" controller="index" action="index" />-->
+        </Routes>
+        
+        <ErrorRedirects>
+            <NotFound controller="error" action="notFound" />
+            <Forbidden controller="error" action="forbidden" />
+            <GenericError controller="error" action="generic" />
+            <InvaildFormToken controller="error" action="invalidFormToken" />
+            <SessionExpired controller="error" action="expired"/>
+        </ErrorRedirects>
+        
+        <IpRestrictions>
+            <!--<Restrict pattern="/" controller="error" action="maintenance">
+                <IP>127.0.0.1</IP>
+            </Restrict>-->
+        </IpRestrictions>
+        
+        <Timezone name="Europe/London" />
+    </Site>
+</Config>
